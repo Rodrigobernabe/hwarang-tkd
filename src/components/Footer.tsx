@@ -14,7 +14,6 @@ const Footer = () => {
               <img src={logo} alt="Hwa Rang Logo" className="h-16 md:h-20 w-auto" />
               <div>
                 <span className="block font-display font-bold text-2xl text-white tracking-widest">HWA RANG</span>
-                <span className="text-xs text-white/50 tracking-[0.3em] uppercase">Arts Studio</span>
               </div>
             </Link>
             <p className="text-muted-foreground max-w-sm font-light">
@@ -95,7 +94,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground text-center md:text-left">
-            &copy; {new Date().getFullYear()} Hwa Rang Arts Studio. Todos los derechos reservados.
+            &copy; {new Date().getFullYear()} Hwa Rang. Todos los derechos reservados.
           </p>
 
           <div className="flex gap-4">
