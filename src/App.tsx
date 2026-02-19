@@ -7,6 +7,7 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import WhatsAppButton from "./components/WhatsAppButton";
 import Inicio from "./pages/Inicio";
 import Nosotros from "./pages/Nosotros";
 import Servicios from "./pages/Servicios";
@@ -26,6 +27,7 @@ const App = () => (
         <BrowserRouter>
           <ScrollToTop />
           <Navigation />
+          <WhatsAppButton />
           <Routes>
             <Route path="/" element={<Inicio />} />
             <Route path="/nosotros" element={<Nosotros />} />
