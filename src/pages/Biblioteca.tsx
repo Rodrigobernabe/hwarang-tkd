@@ -4,6 +4,7 @@ import { Download, Play, FileText, ChevronRight, Lock, BookOpen } from "lucide-r
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import SEO from "@/components/SEO";
 
 const Biblioteca = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -58,6 +59,11 @@ const Biblioteca = () => {
 
   return (
     <div ref={containerRef} className="bg-background min-h-screen pt-20 overflow-hidden">
+      <SEO
+        title="Biblioteca Técnica | Hwa Rang Taekwondo ITF"
+        description="Recursos técnicos, formas (Tyul), teoría y material de estudio para estudiantes de Taekwondo ITF de la Academia Hwa Rang."
+        canonical="https://hwarang-tkd.vercel.app/biblioteca"
+      />
 
       {/* HEADER */}
       <section className="relative py-24 px-4 overflow-hidden">

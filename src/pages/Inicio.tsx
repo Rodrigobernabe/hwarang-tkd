@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import heroClass from "@/assets/hero-new.jpg";
 import { ArrowRight, Shield, Target, Users, Zap, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SEO from "@/components/SEO";
 
 const Inicio = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -17,7 +18,11 @@ const Inicio = () => {
 
   return (
     <div ref={containerRef} className="bg-background text-foreground overflow-hidden">
-
+      <SEO
+        title="Hwa Rang | Academia de Taekwondo ITF en Villa Mercedes"
+        description="Academia de Taekwondo ITF Hwa Rang en Villa Mercedes. Clases para todas las edades, defensa personal y competición. ¡Clase de prueba gratis!"
+        canonical="https://hwarang-tkd.vercel.app/"
+      />
       {/* KINETIC HERO SECTION */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Parallax Background */}

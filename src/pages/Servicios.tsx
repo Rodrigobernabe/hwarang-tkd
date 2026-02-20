@@ -4,6 +4,7 @@ import { Check, ArrowRight, Star, Shield, Users, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
+import SEO from "@/components/SEO";
 import championGirl from "@/assets/champion-girl.jpg";
 import womenTeam from "@/assets/women-team.jpg";
 

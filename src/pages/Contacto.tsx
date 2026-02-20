@@ -2,6 +2,7 @@ import { MapPin, Phone, Clock, Instagram, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import SEO from "@/components/SEO";
 
 const Contacto = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -47,6 +48,11 @@ const Contacto = () => {
 
   return (
     <div ref={containerRef} className="min-h-screen pt-20 bg-background overflow-hidden">
+      <SEO
+        title="Contacto | Hwa Rang Taekwondo ITF Villa Mercedes"
+        description="Ponte en contacto con la Academia Hwa Rang en Villa Mercedes. Consulta horarios, ubicación y comienza tu entrenamiento en Taekwondo ITF hoy mismo."
+        canonical="https://hwarang-tkd.vercel.app/contacto"
+      />
 
       {/* HEADER */}
       <section className="relative py-24 px-4 overflow-hidden">
@@ -59,7 +65,7 @@ const Contacto = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-8xl font-display font-bold mb-6 leading-none">
-              ÚNITE A LA <br />
+              UNITE A LA <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-white">
                 LEGIÓN
               </span>

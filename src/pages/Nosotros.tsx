@@ -4,6 +4,7 @@ import hwarangWarriors from "@/assets/hwarang-warriors.jpg";
 import instructorRodrigo from "@/assets/instructor-rodrigo.png";
 import { Handshake, Shield, Target, Brain, Flame, Award, Quote } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import SEO from "@/components/SEO";
 
 const Nosotros = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -41,6 +42,11 @@ const Nosotros = () => {
 
   return (
     <div ref={containerRef} className="bg-background text-foreground overflow-hidden pt-20">
+      <SEO
+        title="Nosotros | Hwa Rang Taekwondo ITF"
+        description="Conoce al Sabon Rodrigo Bernabé y la filosofía de la Academia Hwa Rang. Más de 13 años formando líderes a través del Taekwondo ITF."
+        canonical="https://hwarang-tkd.vercel.app/nosotros"
+      />
 
       {/* HEADER SECTION */}
       <section className="relative py-20 lg:py-32 px-4 overflow-hidden">
