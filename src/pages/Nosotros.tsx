@@ -93,7 +93,15 @@ const Nosotros = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl transform rotate-3" />
               <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-primary/10 grayscale hover:grayscale-0 transition-all duration-700">
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-                <img src={hwarangWarriors} alt="Guerreros Hwa Rang" className="w-full h-auto object-cover" />
+                <motion.img
+                  initial={{ filter: "grayscale(100%)" }}
+                  whileInView={{ filter: "grayscale(0%)" }}
+                  viewport={{ once: false, margin: "-100px" }}
+                  transition={{ duration: 0.5 }}
+                  src={hwarangWarriors}
+                  alt="Guerreros Hwa Rang"
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute bottom-6 left-6 right-6">
                   <p className="font-display font-bold text-white/90 text-lg">GUERREROS DE SILLA</p>
                   <p className="text-xs text-white/60 uppercase tracking-wider">Inspiración Histórica</p>
@@ -118,7 +126,15 @@ const Nosotros = () => {
                 transition={{ duration: 0.6 }}
                 className="relative z-10"
               >
-                <img src={instructorRodrigo} alt="Instructor Rodrigo" className="w-full h-auto rounded-xl shadow-2xl shadow-black/50 grayscale hover:grayscale-0 transition-all duration-500" />
+                <motion.img
+                  initial={{ filter: "grayscale(100%)" }}
+                  whileInView={{ filter: "grayscale(0%)" }}
+                  viewport={{ once: false, margin: "-100px" }}
+                  transition={{ duration: 0.5 }}
+                  src={instructorRodrigo}
+                  alt="Instructor Rodrigo"
+                  className="w-full h-auto rounded-xl shadow-2xl shadow-black/50 transition-all duration-500"
+                />
 
                 {/* Decorative stats card */}
                 <div className="absolute -bottom-24 right-0 md:-right-12 bg-background border border-white/10 p-6 shadow-xl max-w-xs backdrop-blur-md bg-black/80 z-20 rounded-xl">
@@ -239,13 +255,16 @@ const Nosotros = () => {
       {/* CALL TO ACTION SMALL */}
       <section className="py-20 border-t border-white/10 text-center">
         <h3 className="text-2xl font-display font-bold text-white mb-6">¿LISTO PARA FORMAR PARTE DEL LEGADO?</h3>
-        <motion.button
+        <motion.a
+          href="https://wa.me/5492657619592"
+          target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="px-8 py-3 bg-white text-black font-bold font-display tracking-wider hover:bg-neutral-200 transition-colors"
+          className="inline-block px-8 py-3 bg-white text-black font-bold font-display tracking-wider hover:bg-neutral-200 transition-colors rounded-none"
         >
           CONTACTAR AHORA
-        </motion.button>
+        </motion.a>
       </section>
 
     </div>

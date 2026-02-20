@@ -96,11 +96,11 @@ const Biblioteca = () => {
       <section className="pb-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <Tabs defaultValue="gups" className="w-full">
-            <div className="flex justify-start md:justify-center mb-12 overflow-x-auto pb-4 scrollbar-hide">
-              <TabsList className="bg-white/5 border border-white/10 p-1 rounded-full inline-flex">
-                <TabsTrigger value="gups" className="rounded-full px-6 py-2 data-[state=active]:bg-primary data-[state=active]:text-white font-display tracking-wider whitespace-nowrap">CINTURONES DE COLOR</TabsTrigger>
-                <TabsTrigger value="dans" className="rounded-full px-6 py-2 data-[state=active]:bg-primary data-[state=active]:text-white font-display tracking-wider whitespace-nowrap">CINTURONES NEGROS</TabsTrigger>
-                <TabsTrigger value="resources" className="rounded-full px-6 py-2 data-[state=active]:bg-primary data-[state=active]:text-white font-display tracking-wider whitespace-nowrap">RECURSOS</TabsTrigger>
+            <div className="flex justify-center mb-12 w-full">
+              <TabsList className="bg-white/5 border border-white/10 p-1 rounded-full flex flex-col md:flex-row w-full md:w-auto h-auto">
+                <TabsTrigger value="gups" className="flex-1 rounded-full px-6 py-3 md:py-2 data-[state=active]:bg-primary data-[state=active]:text-white font-display tracking-wider whitespace-nowrap">CINTURONES DE COLOR</TabsTrigger>
+                <TabsTrigger value="dans" className="flex-1 rounded-full px-6 py-3 md:py-2 data-[state=active]:bg-primary data-[state=active]:text-white font-display tracking-wider whitespace-nowrap">CINTURONES NEGROS</TabsTrigger>
+                <TabsTrigger value="resources" className="flex-1 rounded-full px-6 py-3 md:py-2 data-[state=active]:bg-primary data-[state=active]:text-white font-display tracking-wider whitespace-nowrap">RECURSOS</TabsTrigger>
               </TabsList>
             </div>
 

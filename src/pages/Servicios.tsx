@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { Check, ArrowRight, Star, Shield, Users, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -7,6 +7,91 @@ import { Badge } from "@/components/ui/badge";
 import SEO from "@/components/SEO";
 import championGirl from "@/assets/champion-girl.jpg";
 import womenTeam from "@/assets/women-team.jpg";
+
+const ServiceCard = ({ service, index }: { service: any, index: number }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-50% 0px -50% 0px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.2, duration: 0.6 }}
+      className={`group relative h-[550px] md:h-[650px] rounded-3xl overflow-hidden border border-white/5 hover:border-primary/50 transition-colors duration-500 ${isInView ? "border-primary/50" : ""}`}
+    >
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
+        <img
+          src={service.image}
+          alt={service.title}
+          className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 ${isInView ? "scale-110 grayscale-0" : ""}`}
+        />
+      </div>
+
+      {/* Content Overlay */}
+      <div className="relative z-20 h-full flex flex-col justify-end p-8 md:p-12">
+        <div className={`transform transition-transform duration-500 group-hover:-translate-y-4 ${isInView ? "-translate-y-4" : ""}`}>
+          <div className="flex items-center gap-4 mb-4">
+            <div className="p-2 bg-primary/20 backdrop-blur-md rounded-lg text-primary">
+              <service.icon className="w-6 h-6" />
+            </div>
+            {service.highlight && (
+              <span className="px-3 py-1 bg-primary text-white text-xs font-bold tracking-wider uppercase rounded-full">
+                Recomendado
+              </span>
+            )}
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-2 leading-[0.9]">
+            {service.title}
+          </h2>
+          <p className="text-primary font-display tracking-widest uppercase text-sm mb-4">
+            {service.subtitle}
+          </p>
+
+          <div className={`h-[1px] w-full bg-white/20 mb-6 group-hover:bg-primary/50 transition-colors ${isInView ? "bg-primary/50" : ""}`} />
+
+          <div className="space-y-4 mb-8">
+            <div className="flex justify-between text-sm text-gray-300 border-b border-white/10 pb-2">
+              <span>Edad:</span>
+              <span className="text-white font-medium">{service.age}</span>
+            </div>
+            <div className="flex justify-between text-sm text-gray-300 border-b border-white/10 pb-2">
+              <span>Horario:</span>
+              <span className="text-white font-medium">{service.schedule}</span>
+            </div>
+          </div>
+
+          {/* Collapsible Content */}
+          <div className={`grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out ${isInView ? "grid-rows-[1fr]" : ""}`}>
+            <div className="overflow-hidden">
+              <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                {service.description}
+              </p>
+              <ul className="space-y-2 mb-6">
+                {service.features.map((feature: string, idx: number) => (
+                  <li key={idx} className="flex items-start gap-2 text-sm text-white/80">
+                    <Check className="w-4 h-4 text-primary mt-0.5" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Link to="/contacto">
+                <Button className="w-full bg-white text-black hover:bg-primary hover:text-white transition-colors font-display font-bold tracking-wider">
+                  SOLICITAR CLASE DE PRUEBA
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 
 const Servicios = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -100,82 +185,7 @@ const Servicios = () => {
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2, duration: 0.6 }}
-                className="group relative h-[550px] md:h-[650px] rounded-3xl overflow-hidden border border-white/5 hover:border-primary/50 transition-colors duration-500"
-              >
-                {/* Background Image */}
-                <div className="absolute inset-0">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-                  />
-                </div>
-
-                {/* Content Overlay */}
-                <div className="relative z-20 h-full flex flex-col justify-end p-8 md:p-12">
-                  <div className="transform transition-transform duration-500 group-hover:-translate-y-4">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="p-2 bg-primary/20 backdrop-blur-md rounded-lg text-primary">
-                        <service.icon className="w-6 h-6" />
-                      </div>
-                      {service.highlight && (
-                        <span className="px-3 py-1 bg-primary text-white text-xs font-bold tracking-wider uppercase rounded-full">
-                          Recomendado
-                        </span>
-                      )}
-                    </div>
-
-                    <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-2 leading-[0.9]">
-                      {service.title}
-                    </h2>
-                    <p className="text-primary font-display tracking-widest uppercase text-sm mb-4">
-                      {service.subtitle}
-                    </p>
-
-                    <div className="h-[1px] w-full bg-white/20 mb-6 group-hover:bg-primary/50 transition-colors" />
-
-                    <div className="space-y-4 mb-8">
-                      <div className="flex justify-between text-sm text-gray-300 border-b border-white/10 pb-2">
-                        <span>Edad:</span>
-                        <span className="text-white font-medium">{service.age}</span>
-                      </div>
-                      <div className="flex justify-between text-sm text-gray-300 border-b border-white/10 pb-2">
-                        <span>Horario:</span>
-                        <span className="text-white font-medium">{service.schedule}</span>
-                      </div>
-                    </div>
-
-                    {/* Collapsible Content */}
-                    <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
-                      <div className="overflow-hidden">
-                        <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-                          {service.description}
-                        </p>
-                        <ul className="space-y-2 mb-6">
-                          {service.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-sm text-white/80">
-                              <Check className="w-4 h-4 text-primary mt-0.5" />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                        <Link to="/contacto">
-                          <Button className="w-full bg-white text-black hover:bg-primary hover:text-white transition-colors font-display font-bold tracking-wider">
-                            SOLICITAR CLASE DE PRUEBA
-                          </Button>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+              <ServiceCard key={index} service={service} index={index} />
             ))}
           </div>
         </div>
